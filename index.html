@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparateur Devis Fournisseurs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0056b3">
+    <link rel="apple-touch-icon" href="images/icon-192x192.png">
+</head>
+<body>
+
+    <h1>Comparateur de Devis Fournisseurs</h1>
+
+    <h2>Ajouter un devis reçu</h2>
+    <form id="form-devis">
+        <div>
+            <label for="besoin-demande">Besoin / Demande :</label>
+            <input type="text" id="besoin-demande" placeholder="Ex: Achat 5 ordinateurs, Réparation Toiture..." required>
+            <small>Entrez exactement le même texte pour regrouper les devis du même besoin.</small>
+        </div>
+        <div>
+            <label for="nom-fournisseur">Nom du Fournisseur :</label>
+            <input type="text" id="nom-fournisseur" required>
+        </div>
+        <div>
+            <label for="prix-devis">Prix Proposé (XPF) :</label>
+            <input type="number" id="prix-devis" step="any" min="0" required>
+        </div>
+        <div>
+            <label for="date-reception">Date de Réception :</label>
+            <input type="date" id="date-reception" required>
+        </div>
+        <div>
+            <label for="ref-devis">Référence Devis Fournisseur :</label>
+            <input type="text" id="ref-devis" placeholder="(Optionnel)">
+        </div>
+        <div>
+            <label for="notes-devis">Notes :</label>
+            <textarea id="notes-devis" rows="2" placeholder="(Optionnel) Conditions, validité, etc."></textarea>
+        </div>
+        <button type="submit">Ajouter ce devis</button>
+    </form>
+
+    <div style="margin-top: 20px; margin-bottom: 20px; padding: 15px; background-color: #e9ecef; border-radius: 8px;">
+        <h3>Gestion des données</h3>
+        <button id="bouton-exporter" type="button" class="bouton-secondaire" style="margin-right: 10px;">Exporter les données</button>
+        <button id="bouton-importer" type="button" class="bouton-secondaire">Importer des données</button>
+        <input type="file" id="import-fichier" accept=".json" style="display: none;">
+         <p style="font-size: 12px; color: #6c757d; margin-top: 8px;">Sauvegardez régulièrement vos données en les exportant. L'import remplacera les données actuelles.</p>
+    </div>
+
+    <h2>Liste des devis reçus</h2>
+
+    <div class="conteneur-recherche-filtres">
+        <div>
+            <label for="recherche-devis">Rechercher (Besoin/Fourn.) :</label>
+            <input type="search" id="recherche-devis" placeholder="Texte...">
+        </div>
+        <div>
+            <label for="filtre-statut">Filtrer par Statut :</label>
+            <select id="filtre-statut">
+                <option value="">Tous les statuts</option>
+            </select>
+        </div>
+        <div>
+            <label for="filtre-fournisseur">Filtrer par Fournisseur :</label>
+            <select id="filtre-fournisseur">
+                <option value="">Tous les fournisseurs</option>
+            </select>
+        </div>
+    </div>
+
+    <table id="tableau-devis">
+        <thead>
+            <tr>
+                <th data-column="besoin">Besoin / Demande</th>
+                <th data-column="fournisseur">Fournisseur</th>
+                <th data-column="prix">Prix (XPF)</th>
+                <th data-column="date_reception">Date Réception</th>
+                <th data-column="ref_devis">Réf. Devis</th>
+                <th data-column="notes">Notes</th>
+                <th data-column="statut">Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="liste-devis"></tbody>
+    </table>
+
+    <div id="overlay-modification" class="overlay"></div>
+    <div id="modal-modification" class="modal">
+        <button id="fermer-modal" class="modal-fermer">&times;</button>
+        <h2>Modifier le Devis Reçu</h2>
+        <form id="form-modifier-devis">
+            <input type="hidden" id="modifier-id">
+            <div>
+                <label for="modifier-besoin">Besoin / Demande :</label>
+                <input type="text" id="modifier-besoin" required>
+                <small>Attention : changer ceci peut le dégrouper d'autres devis.</small>
+            </div>
+            <div>
+                <label for="modifier-fournisseur">Nom du Fournisseur :</label>
+                <input type="text" id="modifier-fournisseur" required>
+            </div>
+            <div>
+                <label for="modifier-prix">Prix Proposé (XPF) :</label>
+                <input type="number" id="modifier-prix" step="any" min="0" required>
+            </div>
+            <div>
+                <label for="modifier-date-reception">Date de Réception :</label>
+                <input type="date" id="modifier-date-reception" required>
+            </div>
+            <div>
+                <label for="modifier-ref-devis">Référence Devis Fournisseur :</label>
+                <input type="text" id="modifier-ref-devis" placeholder="(Optionnel)">
+            </div>
+            <div>
+                <label for="modifier-notes">Notes :</label>
+                <textarea id="modifier-notes" rows="3" placeholder="(Optionnel)"></textarea>
+            </div>
+            <div class="modal-actions">
+                <button type="submit" class="bouton-principal">Enregistrer les modifications</button>
+                <button type="button" id="annuler-modification" class="bouton-secondaire">Annuler</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
