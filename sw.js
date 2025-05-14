@@ -1,6 +1,6 @@
 // sw.js - Service Worker
 
-const CACHE_NAME = 'comparateur-devis-cache-v9'; // Utilise un nom de cache récent
+const CACHE_NAME = 'comparateur-devis-cache-v10'; // Utilise un nom de cache récent
 const urlsToCache = [
     './', // Représente la racine de votre site sur GitHub Pages (c'est-à-dire index.html)
     './index.html',
@@ -8,8 +8,7 @@ const urlsToCache = [
     './script.js',
     './manifest.json',
     './images/icon-192x192.png',
-    './images/icon-512x512.png',
-    './images/icon-512x512-maskable.png'
+    './images/icon-512x512.png'
     // Si vous avez d'autres fichiers/images essentiels à mettre en cache, ajoutez-les ic
 ];
 
