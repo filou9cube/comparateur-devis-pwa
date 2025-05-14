@@ -123,6 +123,10 @@ h1 { text-align: center; margin-bottom: 30px; }
 #tableau-devis tbody tr.statut-recu { background-color: #cfe2ff !important; }
 #tableau-devis tbody tr.statut-en-comparaison { background-color: #fff3cd !important; }
 #tableau-devis tbody tr.statut-accepte-a-recuperer { background-color: #d1e7dd !important; }
+/* NOUVEAU STATUT AJOUTÉ ICI */
+#tableau-devis tbody tr.statut-accepte-recupere {
+    background-color: #a3e9a4 !important; /* Vert doux - Exemple */
+}
 #tableau-devis tbody tr.statut-accepte-en-commande { background-color: #cff4fc !important; }
 #tableau-devis tbody tr.statut-refuse { background-color: #f8d7da !important; }
 #tableau-devis tbody tr.meilleur-prix { background-color: #c3e6cb !important; }

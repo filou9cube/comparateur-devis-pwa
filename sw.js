@@ -1,6 +1,6 @@
 // sw.js - Service Worker
 
-const CACHE_NAME = 'comparateur-devis-cache-v10'; // Utilise un nom de cache récent
+const CACHE_NAME = 'comparateur-devis-cache-v11'; // Utilise un nom de cache récent
 const urlsToCache = [
     './', // Représente la racine de votre site sur GitHub Pages (c'est-à-dire index.html)
     './index.html',
